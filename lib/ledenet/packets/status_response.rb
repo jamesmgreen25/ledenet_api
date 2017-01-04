@@ -21,7 +21,12 @@ module LEDENET::Packets
     uint8 :blue
     uint8 :warm_white
 
-    uint24be :unused_payload
+    uint8 :unused_payload
+
+    uint8 :cool_white
+
+    uint8 :additional_unused_payload
+
     uint8 :checksum
 
     def on?

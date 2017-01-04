@@ -47,6 +47,10 @@ module LEDENET
       update_color_data(warm_white: warm_white)
     end
 
+    def update_cool_white(cool_white)
+      update_color_data(cool_white: cool_white)
+    end
+
     def update_color_data(o)
       updated_data = current_color_data.merge(o)
       send_packet(LEDENET::Packets::UpdateColorRequest.new(updated_data))
@@ -61,7 +65,7 @@ module LEDENET
     end
 
     def current_color_data(response = request_status)
-      select_status_keys(response, *%w{red green blue warm_white})
+      select_status_keys(response, *%w{red green blue warm_white cool_white})
     end
 
     def update_function(fn)
